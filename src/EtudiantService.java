@@ -6,6 +6,19 @@ import java.util.ArrayList;
 public class EtudiantService {
 	
 	
+	private IJournal j;
+	
+	public IJournal getJournal() {
+		return this.j;
+	}
+	public void ajouterBonus() throws SQLException {
+		ArrayList<Etudiant> etudiants = StudRep.getEtudiants();
+		
+		for(Etudiant e : etudiants) {
+			Universite univ = UnivRep.GetById(e.getId_universite(), new ScreenJourn());
+			e.GBonus(univ);
+		}
+	}
 	boolean inscription (int matricule, String nom, String prénom, String email,String pwd, int id_universite) throws SQLException	
 	{
 		EtudiantRepository StudRep= new EtudiantRepository();

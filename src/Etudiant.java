@@ -101,6 +101,13 @@ public class Etudiant {
 			this.pwd = pwd;
 		}
 
-		
+		  public void GBonus(Universite univ) {
+				
+
+				AbstractFactory AF = new ConcreteCreator ();
+			    IPackage pack = AF.getPackage(univ.getPack());
+				setNbLivreMensuel_Autorise(this.getNbLivreMensuel_Autorise() + pack.getBonus()) ;
+
+			}
 		
 	    }
